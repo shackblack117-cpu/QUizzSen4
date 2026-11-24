@@ -1,0 +1,14 @@
+{
+  "name": "se",
+  "version": "1.0.0",
+  "description": "Website luyện tập Software Engineering bằng tiếng Việt, chạy trực tiếp trong trình duyệt.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}

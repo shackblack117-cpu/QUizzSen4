@@ -1,0 +1,59 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>Software Engineer Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Software Engineer Quiz home"><span class="brand-icon">✳</span><span>quiz<span class="brand-accent">lab</span></span></a>
+      <div class="side-label">KHÔNG GIAN HỌC TẬP</div>
+      <button class="nav-link active" data-view="home"><span>⌂</span> Tổng quan</button>
+      <button class="nav-link" data-view="practice"><span>▤</span> Luyện tập <span class="nav-count">169</span></button>
+      <button class="nav-link" data-view="topics"><span>▦</span> Chủ đề</button>
+      <button class="nav-link" data-view="examples"><span>✎</span> Ví dụ theo tuần</button>
+      <button class="nav-link" data-view="coding"><span>⌘</span> Code bài tut</button>
+      <button class="nav-link" data-view="review"><span>✓</span> Câu hỏi mới</button>
+      <div class="side-label side-label-bottom">CỦA BẠN</div>
+      <div class="progress-card"><div class="progress-icon">⚡</div><strong>Tiếp tục tiến bộ</strong><p>Mỗi lượt học là một bước gần hơn tới kỳ thi.</p><div class="mini-progress"><i></i></div><small id="sidebar-progress">0 / 169 câu đã luyện</small></div>
+      <div class="sidebar-foot"><span class="online-dot"></span> SE1 · Final exam prep</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div class="breadcrumb">Môn học <span>›</span> <strong>Software Engineering 1</strong></div><div class="top-actions"><div class="streak-pill">🔥 <span id="streak-display">0</span> streak</div><div class="avatar">S</div></div></header>
+      <section id="home-view" class="view">
+        <div class="welcome-row"><div><div class="eyebrow"><span class="sparkle">✦</span> KHÔNG GIAN ÔN THI CỦA BẠN</div><h1>Học chắc từng câu,<br><span>tự tin vào phòng thi.</span></h1><p class="welcome-copy">Chọn một chủ đề và bắt đầu luyện tập Software Engineering 1 theo nhịp độ của bạn.</p></div><div class="hero-doodle" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-core">✳</div><span class="float-card float-top">A+</span><span class="float-card float-bottom">↗</span></div></div>
+        <div class="stats-grid"><article class="stat-card"><div class="stat-top"><span>NGÂN HÀNG CÂU HỎI</span><span class="stat-icon violet">▤</span></div><strong>169</strong><small>Câu hỏi · 3 nhóm nguồn</small></article><article class="stat-card"><div class="stat-top"><span>ĐÃ HOÀN THÀNH</span><span class="stat-icon green">✓</span></div><strong id="completed-count">0</strong><small>Câu đã trả lời</small></article><article class="stat-card"><div class="stat-top"><span>ĐỘ CHÍNH XÁC</span><span class="stat-icon orange">◎</span></div><strong id="accuracy-stat">—</strong><small>Tính theo câu đã làm</small></article><article class="stat-card"><div class="stat-top"><span>ĐIỂM CAO NHẤT</span><span class="stat-icon blue">♜</span></div><strong id="best-score">0</strong><small>Điểm trong một lượt</small></article></div>
+        <div class="section-heading"><div><span class="eyebrow">BẮT ĐẦU NGAY</span><h2>Bạn muốn học gì hôm nay?</h2></div><button class="text-button" data-view="topics">Tất cả chủ đề <span>→</span></button></div>
+        <div class="topic-grid" id="home-topics"></div>
+        <section class="source-note"><span class="source-icon">i</span><div><strong>Đã nhập đủ 169 câu trong tài liệu tổng hợp</strong><p>Giữ riêng từng câu theo ba nhóm nguồn: Quizizz, Quizlet và SEN Full. Câu trắc nghiệm có lựa chọn; câu điền đáp án có ô nhập.</p></div></section>
+      </section>
+
+      <section id="topics-view" class="view hidden"><div class="page-heading"><div><div class="eyebrow">LỘ TRÌNH ÔN TẬP</div><h1>Khám phá nhóm câu hỏi</h1><p>Chọn một trong ba nhóm theo tài liệu nguồn.</p></div><button class="button button-primary" data-start="all">✦ Luyện tất cả câu hỏi</button></div><div class="topic-grid topic-grid-all" id="all-topics"></div></section>
+
+      <section id="examples-view" class="view hidden"><div class="page-heading"><div><div class="eyebrow">BÀI TẬP CÓ LỜI GIẢI</div><h1>Ví dụ theo tuần</h1><p>24 ví dụ mới theo 12 lecture SE1. Mở lời giải để xem cách làm và điểm cần ghi nhớ.</p></div></div><div class="week-filters" id="week-filters"></div><div class="examples-list" id="examples-list"></div><section class="source-note examples-source"><span class="source-icon">i</span><div><strong>Đối chiếu tài liệu tutorial</strong><p>Đã đối chiếu các chủ đề OOP, exception, iteration, unit test và các bài thực hành Java/MySQL, Java Web. Ví dụ được viết mới theo nội dung môn học, không sao chép nguyên đề trong PDF.</p></div></section></section>
+
+      <section id="coding-view" class="view hidden"><div class="page-heading code-page-heading"><div><div class="eyebrow">KHÔNG GIAN THỰC HÀNH</div><h1>Code bài tut</h1><p>Chọn bài ở danh sách, viết lời giải và lưu nháp ngay trên trình duyệt.</p></div><span class="runtime-badge"><i></i> Java runtime chưa kết nối</span></div><div class="workbench"><aside class="workbench-sidebar"><div class="workbench-sidebar-title">DANH SÁCH BÀI <span>24</span></div><div id="coding-task-list" class="coding-task-list"></div></aside><div class="workbench-main"><div class="task-brief"><div class="task-breadcrumb" id="coding-task-week">TUẦN 01 · OOP</div><h2 id="coding-task-title">Chọn một bài thực hành</h2><p id="coding-task-prompt"></p><div class="task-hint"><strong>Gợi ý:</strong> Tự triển khai trước, sau đó mở lời giải mẫu để đối chiếu.</div></div><div class="editor-toolbar"><div class="file-tab"><span>◈</span> solution.txt <i></i></div><div class="editor-actions"><span id="draft-status">Chưa lưu</span><button id="copy-code" title="Sao chép code">Sao chép</button><button id="reset-code" title="Xóa bản nháp">Làm mới</button><button id="save-code" class="save-code-button">Lưu nháp</button></div></div><div class="editor-wrap"><div id="line-numbers" class="line-numbers">1</div><textarea id="code-editor" spellcheck="false" aria-label="Trình soạn thảo code" placeholder="// Viết lời giải của bạn tại đây"></textarea></div><div class="editor-footer"><span>Văn bản thuần · Tab để thụt dòng</span><button id="download-code">Tải file ↓</button></div><div class="run-notice"><span>ⓘ</span><div><strong>Chưa thể biên dịch code trong trình duyệt này</strong><p>Đây là trình soạn thảo/lưu bản nháp. Hãy chép code vào dự án trong IntelliJ IDEA, Eclipse hoặc IDE bạn đang dùng để chạy.</p></div></div><div class="reference-row"><button id="toggle-reference" class="reference-toggle">Xem lời giải mẫu <span>⌄</span></button><div id="code-reference" class="code-reference hidden"><pre id="reference-code"></pre><p id="reference-note"></p><button id="use-reference" class="button button-secondary">Chép lời giải vào trình soạn thảo</button></div></div></div></div></section>
+
+      <section id="review-view" class="view hidden"><div class="page-heading"><div><div class="eyebrow">NGÂN HÀNG CÂU HỎI MỚI</div><h1>Ôn tập theo tuần</h1><p>Trắc nghiệm có giải thích và short answer có gợi ý chấm điểm.</p></div></div><div class="week-filters" id="review-week-filters"></div><div id="review-content"></div><section class="source-note"><span class="source-icon">i</span><div><strong>Nguồn câu hỏi</strong><p>169 câu trong tài liệu tổng hợp được chia theo ba nhóm nguồn. Các câu trùng được giữ nguyên theo từng tài liệu.</p></div></section></section>
+
+      <section id="practice-view" class="view hidden"><div class="page-heading"><div><div class="eyebrow">CHẾ ĐỘ LUYỆN TẬP</div><h1>Chọn cách bạn muốn học</h1><p>Luyện nhanh theo nhóm nguồn hoặc thử sức với một lượt thi.</p></div></div><div class="mode-grid"><button class="mode-card" data-start="random10"><span class="mode-icon lilac">⚡</span><span class="mode-tag">GỢI Ý</span><h3>Luyện nhanh</h3><p>10 câu ngẫu nhiên, có phản hồi đáp án sau mỗi câu.</p><span class="mode-link">Bắt đầu luyện <b>→</b></span></button><button class="mode-card" data-start="exam20"><span class="mode-icon mint">◷</span><h3>Mô phỏng thi</h3><p>20 câu liên tiếp. Xem kết quả khi bạn hoàn tất bài làm.</p><span class="mode-link">Vào phòng thi <b>→</b></span></button><button class="mode-card" data-view="topics"><span class="mode-icon peach">▦</span><h3>Ôn theo tài liệu</h3><p>Tập trung vào một trong ba nhóm câu hỏi.</p><span class="mode-link">Chọn nhóm <b>→</b></span></button></div><div class="practice-footnote">Các câu hỏi được trộn thứ tự trong mỗi lượt để giúp bạn ghi nhớ tốt hơn.</div></section>
+
+      <section id="quiz-view" class="view hidden"><div class="quiz-top"><button class="back-button" id="leave-quiz">← <span>Thoát lượt học</span></button><div class="quiz-meta"><span id="quiz-mode-label">LUYỆN TẬP</span><span class="quiz-timer" id="quiz-timer">◷ 00:00</span></div></div><div class="quiz-progress-row"><span id="question-count">CÂU 01 / 10</span><span id="quiz-points">0 điểm</span></div><div class="progress-track"><div id="progress-fill"></div></div><div class="quiz-card"><div class="question-kicker" id="question-topic">LECTURE 1</div><h2 id="question-text"></h2><div class="answer-grid" id="answer-list"></div><div class="feedback-box hidden" id="feedback-box"></div><button id="next-question" class="button button-primary next-button" disabled>Chọn một đáp án <span>→</span></button></div><div class="quiz-hint">Chọn đáp án đúng nhất để tiếp tục</div></section>
+
+      <section id="result-view" class="view hidden"><div class="result-card"><div class="result-symbol" id="result-symbol">✦</div><div class="eyebrow">LƯỢT HỌC HOÀN TẤT</div><h1 id="result-title">Làm tốt lắm!</h1><p id="result-subtitle"></p><div class="result-score" id="result-score">0<span>điểm</span></div><div class="result-stats"><div><strong id="result-correct">0/0</strong><small>Câu đúng</small></div><div><strong id="result-accuracy">0%</strong><small>Độ chính xác</small></div><div><strong id="result-time">00:00</strong><small>Thời gian</small></div></div><div class="result-actions"><button class="button button-primary" id="retry-quiz">Làm lại lượt này ↻</button><button class="button button-secondary" data-view="home">Về tổng quan</button></div></div><div class="review-panel"><h2>Ôn lại câu trả lời</h2><div id="review-list"></div></div></section>
+      <footer class="footer"><span>Software Engineer Quiz</span><span>Học một chút mỗi ngày cũng là tiến bộ ✦</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="questions.js"></script><script src="extra-questions.js"></script><script src="examples.js"></script><script src="app.js"></script>
+</body>
+</html>
+
