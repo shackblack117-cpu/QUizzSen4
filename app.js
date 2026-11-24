@@ -82,7 +82,7 @@
     chosenAnswer = label;
     const q = activeQuestions[index];
     const normalize = value => String(value).toLocaleLowerCase().replace(/\s+/g, '').replace(/[“”‘’]/g, "'");
-    const correct = q.options.length ? label === q.answer : normalize(label) === normalize(q.answerText);
+    const correct = q.options.length ? String(label).toUpperCase() === String(q.answer).toUpperCase() : normalize(label) === normalize(q.answerText);
     answers.push({ id: q.id, selected: label, correct: q.options.length ? q.answer : q.answerText, isCorrect: correct, topic: q.topic, question: q.question, options: q.options });
     if (!saved.answered.includes(q.id)) saved.answered.push(q.id);
     if (correct) { points += 100 + Math.max(0, streak) * 10; streak++; }
@@ -93,13 +93,13 @@
     persist();
     $$('.answer-option').forEach(btn => {
       btn.disabled = true;
-      if (btn.dataset.answer === q.answer) btn.classList.add('correct');
+      if (String(btn.dataset.answer).toUpperCase() === String(q.answer).toUpperCase()) btn.classList.add('correct');
       else if (btn.dataset.answer === label) btn.classList.add('incorrect');
     });
     if ($('#free-answer-input')) $('#free-answer-input').disabled = true;
     if ($('#check-free-answer')) $('#check-free-answer').disabled = true;
     const feedback = $('#feedback-box'); feedback.className = `feedback-box ${correct ? 'correct' : 'incorrect'}`;
-    feedback.textContent = correct ? `✓ Chính xác! ${streak > 1 ? `Chuỗi ${streak} câu đúng · ` : ''}+${100 + Math.max(0, streak - 1) * 10} điểm.` : `Chưa đúng. Đáp án chính xác là ${q.options.length ? q.answer + '. ' + (q.options.find(o => o.label === q.answer)?.text || '') : q.answerText}.`;
+    feedback.textContent = correct ? `✓ Chính xác! ${streak > 1 ? `Chuỗi ${streak} câu đúng · ` : ''}+${100 + Math.max(0, streak - 1) * 10} điểm.` : `Chưa đúng. Đáp án chính xác là ${q.options.length ? q.answer + '. ' + (q.options.find(o => String(o.label).toUpperCase() === String(q.answer).toUpperCase())?.text || '') : q.answerText}.`;
     $('#quiz-points').textContent = `${points} điểm`;
     $('#next-question').disabled = false;
     $('#next-question').innerHTML = index === activeQuestions.length - 1 ? 'Xem kết quả <span>→</span>' : 'Câu tiếp theo <span>→</span>';
